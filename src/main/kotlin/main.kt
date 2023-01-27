@@ -2,7 +2,6 @@ import kotlin.system.exitProcess
 
 fun main() {
     val machine = CoffeeMachine()
-    machine.printStatus()
     do {
         machine.printActions()
         machine.machineAction(readLine()!!.toString())
@@ -16,7 +15,7 @@ class CoffeeMachine {
     private var cups = 9
     private var money = 550
 
-    fun printStatus() {
+    private fun printStatus() {
         println("""The coffee machine has:
 $water ml of water
 $milk ml of milk
@@ -116,7 +115,7 @@ $$money of money""")
                 money = 0
                 println()
             }
-            "exit" -> exitProcess(1)
+            "exit" -> exitProcess(0)
 
             "remaining" -> {
                 println()
